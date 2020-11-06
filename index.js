@@ -8,6 +8,64 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 
+const humans = {
+   woman,
+   man,
+   legs: 2,
+   hands: 2,
+   saying() {
+      'Hello!'
+   }
+}
+
+const pets = {
+   dog,
+   cat,
+   paws: 4
+}
+
+const gender = {
+   female,
+   male
+}
+
+const woman = {
+   name: 'Hanna',
+   whoIs: humans.woman,
+   gender: gender.female,
+   hands: humans.hands,
+   legs: humans.legs,
+   sayng: humans.saying()
+}
+
+const man = {
+   name: 'Vlad',
+   whoIs: humans.man,
+   gender: gender.male,
+   hands: humans.hands,
+   legs: humans.legs,
+   saying: humans.saying()
+}
+
+const cat = {
+   name: 'Ernest',
+   whoIs: pets.cat,
+   gender: gender.male,
+   paws: pets.paws,
+   saying() {
+      'Meoy!'
+   }
+}
+
+const dog = {
+   name: 'Emilia',
+   whoIs: pets.dog,
+   gender: gender.female,
+   paws: pets.paws,
+   saying() {
+      'Woooff!'
+   }
+}
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
