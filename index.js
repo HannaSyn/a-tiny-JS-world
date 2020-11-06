@@ -8,64 +8,52 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 
-const humans = {
-   woman,
-   man,
-   legs: 2,
-   hands: 2,
-   saying() {
-      'Hello!'
+class Inhabitans {
+   constructor ( name, gender, friends, say, legs, hands = 0){
+      this.name = name;
+      this.gender = gender;
+      this.legs = legs;
+      this.hands = hands;
+      this.friends = friends;
+      this.say = say
+   }
+   speak() {
+      let hands = ''; 
+      if (this.hands) {
+         hands = ` and ${this.hands} hands`;
+      }
+
+      return ` ${this.say} My name is ${this.name}, my gender is ${this.gender}, I have ${this.legs} legs${hands} and I have friends: ${this.friends}.`;
    }
 }
 
-const pets = {
-   dog,
-   cat,
-   paws: 4
+class Human extends Inhabitans {
+   constructor( name, gender, friends, say, legs = 2, hands = 2 ) {
+      super( name, gender, friends, say, legs, hands );
+   } 
 }
 
-const gender = {
-   female,
-   male
+class Cat extends Inhabitans {
+   constructor( name, gender, friends, say, legs = 4 ) {
+      super( name, gender, friends, say, legs );
+   } 
 }
 
-const woman = {
-   name: 'Hanna',
-   whoIs: humans.woman,
-   gender: gender.female,
-   hands: humans.hands,
-   legs: humans.legs,
-   sayng: humans.saying()
+class Dog extends Inhabitans {
+   constructor( name, gender, friends, say , legs = 4 ) {
+      super( name, gender, friends, say, legs );
+   } 
 }
 
-const man = {
-   name: 'Vlad',
-   whoIs: humans.man,
-   gender: gender.male,
-   hands: humans.hands,
-   legs: humans.legs,
-   saying: humans.saying()
-}
+const woman = new Human('Hanna', 'female', ['Vlad', 'Ernest', 'Emilia'], 'Hi!');
+const man = new Human('Vlad', 'male', ['Hanna', 'Ernest', 'Emilia'], 'Hello!');
+const cat = new Cat('Ernest', 'male', ['Vlad', 'Hanna', 'Emilia'], 'Meow!');
+const dog = new Dog('Emilia', 'female', ['Vlad', 'Ernest', 'Hanna'], 'Wooof!');
 
-const cat = {
-   name: 'Ernest',
-   whoIs: pets.cat,
-   gender: gender.male,
-   paws: pets.paws,
-   saying() {
-      'Meoy!'
-   }
-}
-
-const dog = {
-   name: 'Emilia',
-   whoIs: pets.dog,
-   gender: gender.female,
-   paws: pets.paws,
-   saying() {
-      'Woooff!'
-   }
-}
+print(woman.speak());
+print(man.speak());
+print(cat.speak());
+print(dog.speak());
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
