@@ -16,13 +16,12 @@ class Inhabitans {
       this.friends = friends;
       this.say = say
    }
-   
+
 }
 
 class Human extends Inhabitans {
-   constructor( name, gender, friends, say, legs, hands, biologicalSpecies ) {
-      super( name, gender, friends, say, biologicalSpecies);
-      this.biologicalSpecies = 'human';
+   constructor( name, gender, friends, say, legs, hands ) {
+      super( name, gender, friends, say, 'human');
       this.legs = legs;
       this.hands = hands;
    } 
@@ -34,9 +33,8 @@ class Human extends Inhabitans {
 }
 
 class Cat extends Inhabitans {
-   constructor( name, gender, friends, say, paws, biologicalSpecies) {
-      super( name, gender, friends, say, biologicalSpecies );
-      this.biologicalSpecies = 'cat';
+   constructor( name, gender, friends, say, paws) {
+      super( name, gender, friends, say, 'cat' );
       this.paws = paws;
    } 
 
@@ -46,22 +44,21 @@ class Cat extends Inhabitans {
 }
 
 class Dog extends Inhabitans {
-   constructor( name, gender, friends, say, paws, master, biologicalSpecies ) {
-      super( name, gender, friends, say, biologicalSpecies );
-      this.biologicalSpecies = 'dog';
+   constructor( name, gender, friends, say, paws, Human ) {
+      super( name, gender, friends, say, 'dog' );
       this.paws = paws;
-      this.master = master
+      this.master = Human;
    } 
 
    bark() {
-      return ` ${this.say}  I'm ${this.biologicalSpecies}! My name is ${this.name}, my gender is ${this.gender}, I have ${this.paws} paws, I love my master ${this.master} very much! And I have friends: ${this.friends}.` 
+      return ` ${this.say}  I'm ${this.biologicalSpecies}! My name is ${this.name}, my gender is ${this.gender}, I have ${this.paws} paws, I love my master ${this.master.name} very much! And I have friends: ${this.friends}.` 
    }
 }
 
 const woman = new Human('Hanna', 'female', ['Vlad', 'Ernest', 'Emilia'], 'Hi!', 2, 2);
 const man = new Human('Vlad', 'male', ['Hanna', 'Ernest', 'Emilia'], 'Hello!', 2, 2);
 const cat = new Cat('Ernest', 'male', ['Vlad', 'Hanna', 'Emilia'], 'Meow!', 4);
-const dog = new Dog('Emilia', 'female', ['Vlad', 'Ernest'], 'Wooof!', 4, 'Hanna');
+const dog = new Dog('Emilia', 'female', ['Vlad', 'Ernest'], 'Wooof!', 4, woman);
 
 print(woman.speak());
 print(man.speak());
